@@ -1,0 +1,1239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EURO CENTRAL - Premium Movie Props</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        :root {
+            --gold: #d4af37;
+            --gold-light: #f0d875;
+            --gold-dark: #b8962e;
+            --black: #0a0a0a;
+            --black2: #121212;
+            --black3: #1a1a1a;
+            --silver: #c0c0c0;
+            --silver-light: #e8e8e8;
+            --silver-dark: #8a8a8a;
+            --light: #ffffff;
+            --gray: #888888;
+        }
+        
+        html { scroll-behavior: smooth; }
+        
+        body {
+            font-family: 'Outfit', sans-serif;
+            background: var(--black);
+            color: var(--light);
+            line-height: 1.6;
+        }
+        
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(212, 175, 55, 0.3);
+        }
+        
+        .header-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 15px 25px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo-img {
+            height: 50px;
+            width: auto;
+            object-fit: contain;
+        }
+        
+        nav { display: flex; gap: 30px; }
+        
+        nav a {
+            color: var(--silver);
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        nav a:hover { color: var(--gold); }
+        
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 120px 25px 80px;
+            background: 
+                radial-gradient(ellipse at 20% 80%, rgba(212, 175, 55, 0.12) 0%, transparent 50%),
+                radial-gradient(ellipse at 80% 20%, rgba(192, 192, 192, 0.08) 0%, transparent 50%),
+                linear-gradient(180deg, var(--black) 0%, #0d0d0d 50%, var(--black) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.12;
+            z-index: 0;
+        }
+        
+        .hero::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            box-shadow: inset 0 0 150px 50px var(--black);
+            pointer-events: none;
+            z-index: 2;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 800px;
+            height: 800px;
+            transform: translate(-50%, -50%);
+            background: radial-gradient(circle, rgba(212, 175, 55, 0.06) 0%, transparent 70%);
+            animation: pulse 4s ease-in-out infinite;
+            z-index: 1;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.5; }
+            50% { transform: translate(-50%, -50%) scale(1.1); opacity: 0.8; }
+        }
+        
+        .hero-content { 
+            max-width: 750px; 
+            position: relative;
+            z-index: 1;
+            text-shadow: 0 2px 20px rgba(0,0,0,0.8);
+        }
+        
+        .hero h1 {
+            font-size: clamp(36px, 7vw, 64px);
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 20px;
+            animation: fadeInUp 0.8s ease;
+        }
+        
+        .hero h1 span {
+            background: linear-gradient(135deg, var(--gold), var(--gold-light));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .hero p {
+            font-size: 18px;
+            color: var(--silver);
+            margin-bottom: 35px;
+            animation: fadeInUp 0.8s ease 0.15s both;
+        }
+        
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(25px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .cta-btn {
+            display: inline-block;
+            padding: 16px 42px;
+            background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+            color: var(--black);
+            text-decoration: none;
+            border-radius: 50px;
+            font-size: 16px;
+            font-weight: 700;
+            transition: all 0.3s;
+            animation: fadeInUp 0.8s ease 0.3s both;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 25px rgba(212, 175, 55, 0.4);
+        }
+        
+        .cta-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 35px rgba(212, 175, 55, 0.6);
+        }
+        
+        .products, .shipping, .payment {
+            padding: 100px 25px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .section-title {
+            text-align: center;
+            font-size: clamp(28px, 5vw, 42px);
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: var(--silver-light);
+        }
+        
+        .section-title span { color: var(--gold); }
+        
+        .section-subtitle {
+            text-align: center;
+            color: var(--silver-dark);
+            margin-bottom: 50px;
+        }
+        
+        .about { padding: 100px 25px; max-width: 1100px; margin: 0 auto; }
+        
+        .about-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+        
+        .about-card {
+            background: var(--black2);
+            padding: 30px;
+            border-radius: 20px;
+            border: 1px solid rgba(212, 175, 55, 0.15);
+            text-align: center;
+        }
+        
+        .about-card h3 { color: var(--gold); font-size: 20px; margin-bottom: 15px; }
+        .about-card p { color: var(--silver-dark); font-size: 14px; line-height: 1.7; }
+        
+        .proof { padding: 100px 25px; background: var(--black2); }
+        .proof h2 { text-align: center; font-size: clamp(28px, 5vw, 42px); margin-bottom: 15px; color: var(--silver-light); }
+        .proof h2 span { color: var(--gold); }
+        .proof .proof-subtitle { text-align: center; color: var(--silver-dark); margin-bottom: 50px; }
+        
+        .proof-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+        
+        .proof-item {
+            background: var(--black3);
+            padding: 20px;
+            border-radius: 16px;
+            text-align: center;
+        }
+        
+        .proof-item img, .proof-item video {
+            width: 100%;
+            border-radius: 12px;
+            margin-bottom: 15px;
+            min-height: 200px;
+            object-fit: cover;
+            background: var(--black3);
+        }
+        
+        .proof-item video {
+            min-height: 250px;
+        }
+        
+        .proof-item h3 { color: var(--silver-light); font-size: 16px; margin-bottom: 10px; }
+        .proof-item p { color: var(--silver-dark); font-size: 13px; }
+        
+        .low-stock {
+            background: rgba(233, 69, 96, 0.15);
+            border: 1px solid rgba(233, 69, 96, 0.3);
+            padding: 15px 20px;
+            border-radius: 12px;
+            margin-bottom: 25px;
+            text-align: center;
+        }
+        
+        .low-stock p { color: var(--primary); font-weight: 600; }
+        
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 25px;
+        }
+        
+        .product-card {
+            background: var(--black2);
+            border-radius: 24px;
+            padding: 30px;
+            transition: all 0.4s;
+            border: 1px solid rgba(212, 175, 55, 0.15);
+            position: relative;
+            overflow: hidden;
+            min-height: 480px;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .product-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.08) 0%, transparent 50%);
+            opacity: 0;
+            transition: all 0.4s;
+        }
+        
+        .product-card:hover::before {
+            opacity: 1;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(212, 175, 55, 0.5);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5), 0 0 30px rgba(212, 175, 55, 0.1);
+        }
+        
+
+        
+        .bill-visual::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(255,255,255,0.15) 0%, transparent 50%);
+        }
+        
+        .bill-visual.bill-20 {
+            background: linear-gradient(135deg, #3a6a4a 0%, #2a5a3a 50%, #1a4a2a 100%);
+        }
+        
+        .bill-visual.bill-50 {
+            background: linear-gradient(135deg, #4a7a5a 0%, #3a6a4a 50%, #2a5a3a 100%);
+        }
+        
+        .bill-visual .bill-value {
+            font-size: 18px;
+            font-weight: 700;
+            color: #fff;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+            letter-spacing: 1px;
+        }
+        
+        .bill-visual .bill-symbol {
+            position: absolute;
+            font-size: 30px;
+            opacity: 0.15;
+            color: #fff;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        
+        .bill-visual::after {
+            content: '€';
+            position: absolute;
+            bottom: 5px;
+            right: 8px;
+            font-size: 12px;
+            font-weight: 600;
+            color: rgba(255,255,255,0.7);
+        }
+        
+        .bill-visual-2 {
+            position: absolute;
+            top: 70px;
+            right: 35px;
+            width: 100px;
+            height: 55px;
+            border-radius: 6px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            transform: rotate(12deg);
+            opacity: 0.7;
+            transition: all 0.4s;
+        }
+        
+        .bill-visual-2::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(255,255,255,0.15) 0%, transparent 50%);
+        }
+        
+        .bill-visual-2.bill-20 {
+            background: linear-gradient(135deg, #3a6a4a 0%, #2a5a3a 50%, #1a4a2a 100%);
+        }
+        
+        .bill-visual-2.bill-50 {
+            background: linear-gradient(135deg, #4a7a5a 0%, #3a6a4a 50%, #2a5a3a 100%);
+        }
+        
+        .bill-visual-2 .bill-value {
+            font-size: 18px;
+            font-weight: 700;
+            color: #fff;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+        }
+        
+        .bill-visual-2::after {
+            content: '€';
+            position: absolute;
+            bottom: 5px;
+            right: 8px;
+            font-size: 12px;
+            font-weight: 600;
+            color: rgba(255,255,255,0.7);
+        }
+        
+        .product-card:hover .bill-visual {
+            transform: rotate(-5deg) translateY(-5px);
+        }
+        
+        .product-card:hover .bill-visual-2 {
+            transform: rotate(8deg) translateY(-8px);
+            opacity: 0.9;
+        }
+        
+        .product-card .badge {
+            display: inline-block;
+            padding: 5px 12px;
+            background: rgba(212, 175, 55, 0.2);
+            color: var(--gold);
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            margin-bottom: 15px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .product-card h3 { 
+            font-size: 22px; 
+            margin-bottom: 8px; 
+            color: var(--silver-light); 
+            position: relative;
+            z-index: 1;
+        }
+        
+        .product-card .desc { 
+            color: var(--silver-dark); 
+            font-size: 14px; 
+            margin-bottom: 20px; 
+            position: relative;
+            z-index: 1;
+        }
+        
+        .product-card .price { 
+            font-size: 32px; 
+            font-weight: 700; 
+            margin-bottom: 20px; 
+            color: var(--gold); 
+            position: relative;
+            z-index: 1;
+        }
+        
+        .product-card .price .discount {
+            font-size: 16px;
+            color: var(--silver-dark);
+            text-decoration: line-through;
+            margin-left: 10px;
+            font-weight: 400;
+        }
+        
+        .bill-img {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            width: 90px;
+            height: auto;
+            transform: rotate(-8deg);
+            opacity: 0.85;
+            transition: all 0.4s;
+            z-index: 0;
+        }
+        
+        .bill-img-2 {
+            position: absolute;
+            top: 65px;
+            right: 35px;
+            width: 90px;
+            height: auto;
+            transform: rotate(12deg);
+            opacity: 0.6;
+            transition: all 0.4s;
+            z-index: 0;
+        }
+        
+        .product-card:hover .bill-img {
+            transform: rotate(-5deg) translateY(-5px);
+            opacity: 1;
+        }
+        
+        .product-card:hover .bill-img-2 {
+            transform: rotate(8deg) translateY(-8px);
+            opacity: 0.8;
+        }
+        
+        .product-card ul {
+            list-style: none;
+            margin-bottom: 25px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .product-card li {
+            padding: 8px 0;
+            font-size: 13px;
+            color: var(--silver-dark);
+            border-bottom: 1px solid rgba(255,255,255,0.03);
+        }
+        
+        .product-card li::before {
+            content: '✓ ';
+            color: var(--gold);
+            font-weight: 700;
+        }
+        
+        .select-btn {
+            width: 100%;
+            padding: 16px;
+            background: transparent;
+            border: 2px solid var(--gold);
+            color: var(--gold);
+            border-radius: 14px;
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            position: relative;
+            z-index: 1;
+            margin-top: auto;
+        }
+        
+        .select-btn:hover { background: var(--gold); color: var(--black); }
+        
+        .details { background: var(--black2); padding: 100px 25px; border-top: 1px solid rgba(212, 175, 55, 0.1); border-bottom: 1px solid rgba(212, 175, 55, 0.1); }
+        
+        .details-inner { max-width: 1100px; margin: 0 auto; }
+        
+        .details h2 { text-align: center; font-size: clamp(28px, 5vw, 42px); margin-bottom: 50px; color: var(--silver-light); }
+        
+        .details-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+        
+        .detail-card {
+            background: var(--black);
+            padding: 30px;
+            border-radius: 20px;
+            border: 1px solid rgba(212, 175, 55, 0.1);
+        }
+        
+        .detail-card h3 { color: var(--gold); font-size: 18px; margin-bottom: 15px; }
+        .detail-card p { color: var(--silver-dark); font-size: 14px; line-height: 1.7; }
+        
+        .shipping { text-align: center; max-width: 1100px; }
+        .shipping h2 { font-size: clamp(28px, 5vw, 42px); margin-bottom: 50px; color: var(--silver-light); }
+        .shipping h2 span { color: var(--gold); }
+        
+        .shipping-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+        }
+        
+        .shipping-item {
+            background: var(--black2);
+            padding: 35px 25px;
+            border-radius: 20px;
+            transition: all 0.3s;
+            border: 1px solid rgba(212, 175, 55, 0.1);
+        }
+        
+        .shipping-item:hover { transform: translateY(-5px); border-color: rgba(212, 175, 55, 0.3); }
+        .shipping-item .icon { font-size: 40px; margin-bottom: 15px; }
+        .shipping-item h3 { font-size: 18px; margin-bottom: 10px; color: var(--silver-light); }
+        .shipping-item p { color: var(--silver-dark); font-size: 14px; }
+        
+        .payment { max-width: 650px; text-align: center; margin: 0 auto; }
+        .payment h2 { font-size: clamp(28px, 5vw, 42px); margin-bottom: 15px; color: var(--silver-light); }
+        .payment h2 span { color: var(--gold); }
+        .payment-subtitle { color: var(--silver-dark); margin-bottom: 35px; }
+        
+        .payment-methods {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-bottom: 40px;
+        }
+        
+        .payment-btn {
+            padding: 14px 28px;
+            background: var(--black2);
+            border: 2px solid var(--silver-dark);
+            border-radius: 12px;
+            color: var(--silver-dark);
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .payment-btn:hover { border-color: var(--gold); color: var(--gold); }
+        .payment-btn.active { border-color: var(--gold); background: rgba(212, 175, 55, 0.15); color: var(--gold); }
+        
+        .crypto-info { display: none; background: var(--black2); padding: 30px; border-radius: 20px; margin-bottom: 25px; border: 1px solid rgba(212, 175, 55, 0.15); }
+        .crypto-info.show { display: block; animation: fadeInUp 0.5s ease; }
+        
+        .crypto-header { display: flex; align-items: center; justify-content: center; gap: 10px; margin-bottom: 20px; }
+        .crypto-header h3 { font-size: 20px; color: var(--gold); }
+        
+        .qr-container {
+            background: white;
+            padding: 15px;
+            border-radius: 12px;
+            display: inline-block;
+            margin-bottom: 20px;
+        }
+        
+        .qr-container img { display: block; width: 150px; height: 150px; }
+        
+        .address-box {
+            background: var(--black);
+            padding: 15px 20px;
+            border-radius: 12px;
+            border: 1px solid var(--silver-dark);
+            margin-bottom: 15px;
+        }
+        
+        .address-box label { display: block; font-size: 12px; color: var(--silver-dark); margin-bottom: 8px; }
+        .address-box .addr { font-size: 13px; word-break: break-all; color: var(--silver-light); font-family: monospace; }
+        
+        .copy-btn {
+            padding: 10px 20px;
+            background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+            border: none;
+            border-radius: 8px;
+            color: var(--black);
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .copy-btn:hover { background: var(--gold-light); transform: translateY(-2px); }
+        
+        .paysafe-box { display: none; background: var(--black2); padding: 30px; border-radius: 20px; margin-bottom: 25px; border: 1px solid rgba(212, 175, 55, 0.15); }
+        .paysafe-box.show { display: block; animation: fadeInUp 0.5s ease; }
+        
+        .paysafe-box h3 { font-size: 20px; margin-bottom: 20px; color: var(--gold); }
+        
+        .paysafe-input {
+            width: 100%;
+            padding: 16px 20px;
+            background: var(--black);
+            border: 1px solid var(--silver-dark);
+            border-radius: 12px;
+            color: var(--light);
+            font-size: 16px;
+            font-family: monospace;
+            text-align: center;
+            margin-bottom: 15px;
+        }
+        
+        .paysafe-input::placeholder { font-family: inherit; }
+        .paysafe-input:focus { outline: none; border-color: var(--gold); }
+        
+        .paysafe-note { font-size: 13px; color: var(--silver-dark); margin-top: 10px; }
+        
+        .order-form { display: none; background: var(--black2); padding: 40px; border-radius: 24px; text-align: left; border: 1px solid rgba(212, 175, 55, 0.15); }
+        .order-form.show { display: block; animation: fadeInUp 0.5s ease; }
+        .order-form h3 { font-size: 22px; margin-bottom: 30px; text-align: center; color: var(--silver-light); }
+        
+        .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
+        .form-group { margin-bottom: 20px; }
+        .form-group label { display: block; margin-bottom: 8px; font-size: 13px; color: var(--silver-dark); font-weight: 500; }
+        
+        .form-group input, .form-group textarea {
+            width: 100%;
+            padding: 14px 18px;
+            background: var(--black);
+            border: 1px solid var(--silver-dark);
+            border-radius: 12px;
+            color: var(--light);
+            font-size: 15px;
+            font-family: inherit;
+        }
+        
+        .form-group input::placeholder, .form-group textarea::placeholder { color: var(--gray); }
+        .form-group input:focus, .form-group textarea:focus { outline: none; border-color: var(--gold); }
+        
+        .submit-btn {
+            width: 100%;
+            padding: 18px;
+            background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+            border: none;
+            border-radius: 14px;
+            color: var(--black);
+            font-size: 16px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s;
+            margin-top: 10px;
+        }
+        
+        .submit-btn:hover { background: var(--gold-light); transform: translateY(-2px); }
+        
+        .total-pay {
+            background: var(--black3);
+            padding: 20px;
+            border-radius: 12px;
+            margin-top: 20px;
+            text-align: center;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+        }
+        
+        .total-pay .label { font-size: 14px; color: var(--silver-dark); margin-bottom: 5px; }
+        .total-pay .amount { font-size: 28px; font-weight: 700; color: var(--gold); }
+        .total-pay .breakdown { font-size: 12px; color: var(--silver-dark); margin-top: 8px; }
+        
+        footer {
+            background: var(--black2);
+            padding: 50px 25px;
+            text-align: center;
+            border-top: 1px solid rgba(212, 175, 55, 0.15);
+        }
+        
+        .footer-logo { height: 40px; margin-bottom: 15px; }
+        footer p { color: var(--silver-dark); font-size: 14px; }
+        
+        .disclaimer {
+            margin-top: 25px;
+            padding: 20px;
+            background: rgba(212, 175, 55, 0.1);
+            border-radius: 14px;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+        }
+        
+        .disclaimer p:first-child { color: var(--gold); font-weight: 600; font-size: 15px; margin-bottom: 8px; }
+        .disclaimer p:last-child { font-size: 13px; line-height: 1.6; }
+        
+        .popup-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .popup-overlay.show { display: flex; }
+        
+        .popup-box {
+            background: var(--black2);
+            padding: 40px;
+            border-radius: 20px;
+            max-width: 450px;
+            text-align: center;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            animation: popupIn 0.4s ease;
+        }
+        
+        @keyframes popupIn {
+            from { transform: scale(0.8); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+        
+        .popup-box h3 { font-size: 24px; margin-bottom: 15px; color: var(--gold); }
+        .popup-box p { font-size: 15px; color: var(--silver-dark); margin-bottom: 10px; }
+        .popup-box .support-email { font-size: 18px; color: var(--silver-light); margin: 20px 0; word-break: break-all; }
+        
+        .popup-btn {
+            padding: 12px 30px;
+            background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+            border: none;
+            border-radius: 10px;
+            color: var(--black);
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .popup-btn:hover { background: var(--gold-light); }
+        
+        @media (max-width: 768px) {
+            nav { display: none; }
+            .form-row { grid-template-columns: 1fr; }
+            .hero p { font-size: 16px; }
+            .product-card { min-height: 420px; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-inner">
+            <img src="ECLOGO.png" alt="EURO CENTRAL" class="logo-img">
+            <nav>
+                <a href="#about">About</a>
+                <a href="#products">Products</a>
+                <a href="#proof">Proof</a>
+                <a href="#details">Details</a>
+                <a href="#shipping">Shipping</a>
+                <a href="#payment">Payment</a>
+            </nav>
+        </div>
+    </header>
+    
+    <section class="hero">
+        <video class="hero-video" autoplay muted loop playsinline>
+            <source src="EC_TG/INTO_VIDEO/ypanhsqpihsjbyp.mp4" type="video/mp4">
+        </video>
+        <div class="hero-content">
+            <h1>Premium <span>Euro Prop Bills</span></h1>
+            <p>High-quality S-Quality Euro bills. Perfect for LARP, film, theater, photography & more.</p>
+            <a href="#products" class="cta-btn">View Products</a>
+        </div>
+    </section>
+    
+    <section class="about" id="about">
+        <h2 class="section-title">Welcome to <span>EURO CENTRAL</span></h2>
+        <p class="section-subtitle">Premium prop bills since 2021</p>
+        
+        <div class="about-grid">
+            <div class="about-card">
+                <h3>Who We Are</h3>
+                <p>We are a group that sells premium Euro prop bills. We work by sourcing counterfeit bills in bulk from large private groups, allowing us to resell at competitive prices while maintaining excellent quality.</p>
+            </div>
+            <div class="about-card">
+                <h3>Our Quality</h3>
+                <p>Our Euro bills are "S Quality" - they can easily be used for film productions, photography, gifts, theater, and LARP events. Every bill is carefully inspected before shipping.</p>
+            </div>
+            <div class="about-card">
+                <h3>Our Manufacturer</h3>
+                <p>Our bills are made in Peru using an intaglio press, unlike low-quality bills made on inkjet printers. This ensures premium detail and authenticity.</p>
+            </div>
+            <div class="about-card">
+                <h3>Scanner Tested</h3>
+                <p>Our bills pass every scanner except for ATMs. Perfect for film, theater, photography, and all LARP purposes.</p>
+            </div>
+        </div>
+    </section>
+    
+    <section class="products" id="products">
+        <h2 class="section-title">Our <span>Products</span></h2>
+        <p class="section-subtitle">Choose your perfect prop set</p>
+        
+        <div class="product-grid">
+            <div class="product-card">
+                <span class="badge">BEST VALUE</span>
+                <img src="EC_TG/BONUS_EYECANDY/MAIN_EYECANDY_ASSETS/20 BILL.png" alt="20 Euro Bills" class="bill-img">
+                <img src="EC_TG/BONUS_EYECANDY/MAIN_EYECANDY_ASSETS/20 BILL.png" alt="20 Euro Bills" class="bill-img-2">
+                <h3>20€ Bills - Sample (8)</h3>
+                <p class="desc">Perfect for film & photography</p>
+                <div class="price">$32 USD <span class="discount">$45</span></div>
+                <ul>
+                    <li>Excellent colors & size</li>
+                    <li>Different serial numbers</li>
+                    <li>Security thread paper</li>
+                    <li>Hologram & OVI</li>
+                    <li>Protective varnish</li>
+                </ul>
+                <button class="select-btn" onclick="selectProduct('20_8', '20 Euro Bills - Sample (8)', '$32 USD')">Select</button>
+            </div>
+            
+            <div class="product-card">
+                <img src="EC_TG/BONUS_EYECANDY/MAIN_EYECANDY_ASSETS/20 BILL.png" alt="20 Euro Bills" class="bill-img">
+                <img src="EC_TG/BONUS_EYECANDY/MAIN_EYECANDY_ASSETS/20 BILL.png" alt="20 Euro Bills" class="bill-img-2">
+                <h3>20€ Bills - Medium (15)</h3>
+                <p class="desc">Great for small productions</p>
+                <div class="price">$67 USD <span class="discount">$95</span></div>
+                <ul>
+                    <li>Excellent colors & size</li>
+                    <li>Different serial numbers</li>
+                    <li>Security thread paper</li>
+                    <li>Hologram & OVI</li>
+                    <li>Protective varnish</li>
+                </ul>
+                <button class="select-btn" onclick="selectProduct('20_15', '20 Euro Bills - Medium (15)', '$67 USD')">Select</button>
+            </div>
+            
+            <div class="product-card">
+                <img src="EC_TG/BONUS_EYECANDY/MAIN_EYECANDY_ASSETS/20 BILL.png" alt="20 Euro Bills" class="bill-img">
+                <img src="EC_TG/BONUS_EYECANDY/MAIN_EYECANDY_ASSETS/20 BILL.png" alt="20 Euro Bills" class="bill-img-2">
+                <h3>20€ Bills - Large (25)</h3>
+                <p class="desc">For professional productions</p>
+                <div class="price">$88 USD <span class="discount">$125</span></div>
+                <ul>
+                    <li>Excellent colors & size</li>
+                    <li>Different serial numbers</li>
+                    <li>Security thread paper</li>
+                    <li>Hologram & OVI</li>
+                    <li>Protective varnish</li>
+                </ul>
+                <button class="select-btn" onclick="selectProduct('20_25', '20 Euro Bills - Large (25)', '$88 USD')">Select</button>
+            </div>
+            
+            <div class="product-card">
+                <span class="badge">POPULAR</span>
+                <img src="EC_TG/BONUS_EYECANDY/MAIN_EYECANDY_ASSETS/50 BILL.png" alt="50 Euro Bills" class="bill-img">
+                <img src="EC_TG/BONUS_EYECANDY/MAIN_EYECANDY_ASSETS/50 BILL.png" alt="50 Euro Bills" class="bill-img-2">
+                <h3>50€ Bills - Sample (8)</h3>
+                <p class="desc">Perfect for film & photography</p>
+                <div class="price">$55 USD</div>
+                <ul>
+                    <li>Excellent colors & size</li>
+                    <li>Different serial numbers</li>
+                    <li>Security thread paper</li>
+                    <li>Hologram & OVI</li>
+                    <li>Finer microprint</li>
+                </ul>
+                <button class="select-btn" onclick="selectProduct('50_8', '50 Euro Bills - Sample (8)', '$55 USD')">Select</button>
+            </div>
+            
+            <div class="product-card">
+                <img src="EC_TG/BONUS_EYECANDY/MAIN_EYECANDY_ASSETS/50 BILL.png" alt="50 Euro Bills" class="bill-img">
+                <img src="EC_TG/BONUS_EYECANDY/MAIN_EYECANDY_ASSETS/50 BILL.png" alt="50 Euro Bills" class="bill-img-2">
+                <h3>50€ Bills - Medium (15)</h3>
+                <p class="desc">Great for small productions</p>
+                <div class="price">$105 USD</div>
+                <ul>
+                    <li>Excellent colors & size</li>
+                    <li>Different serial numbers</li>
+                    <li>Security thread paper</li>
+                    <li>Hologram & OVI</li>
+                    <li>Finer microprint</li>
+                </ul>
+                <button class="select-btn" onclick="selectProduct('50_15', '50 Euro Bills - Medium (15)', '$105 USD')">Select</button>
+            </div>
+            
+            <div class="product-card">
+                <img src="EC_TG/BONUS_EYECANDY/MAIN_EYECANDY_ASSETS/50 BILL.png" alt="50 Euro Bills" class="bill-img">
+                <img src="EC_TG/BONUS_EYECANDY/MAIN_EYECANDY_ASSETS/50 BILL.png" alt="50 Euro Bills" class="bill-img-2">
+                <h3>50€ Bills - Large (25)</h3>
+                <p class="desc">For professional productions</p>
+                <div class="price">$135 USD</div>
+                <ul>
+                    <li>Excellent colors & size</li>
+                    <li>Different serial numbers</li>
+                    <li>Security thread paper</li>
+                    <li>Hologram & OVI</li>
+                    <li>Finer microprint</li>
+                </ul>
+                <button class="select-btn" onclick="selectProduct('50_25', '50 Euro Bills - Large (25)', '$135 USD')">Select</button>
+            </div>
+        </div>
+    </section>
+    
+    <section class="proof" id="proof">
+        <h2>Proof <span>&</span> Reviews</h2>
+        <p class="proof-subtitle">See for yourself why we're trusted</p>
+        
+        <div class="proof-grid">
+            <div class="proof-item proof-video">
+                <video controls playsinline>
+                    <source src="EC_TG/BONUS_EYECANDY/PACKING_PRODUCT_VIDEO.mp4" type="video/mp4">
+                </video>
+                <h3>Packing Process</h3>
+                <p>Discreet packaging ensured</p>
+            </div>
+            <div class="proof-item">
+                <video controls playsinline>
+                    <source src="EC_TG/PROOF_SECTION/20 EUR/0402-copy(1).mp4" type="video/mp4">
+                </video>
+                <h3>20€ Bills</h3>
+                <p>Close-up detail view</p>
+            </div>
+            <div class="proof-item">
+                <video controls playsinline>
+                    <source src="EC_TG/PROOF_SECTION/50 EUR/0402-copy(3).mp4" type="video/mp4">
+                </video>
+                <h3>50€ Bills</h3>
+                <p>Premium quality view</p>
+            </div>
+        </div>
+    </section>
+    
+    <section class="details" id="details">
+        <div class="details-inner">
+            <h2>Product <span style="color: var(--gold);">Details</span></h2>
+            <div class="details-grid">
+                <div class="detail-card">
+                    <h3>20€ Bills Features</h3>
+                    <p>Excellent colors and size. Different serial numbers. Security line and watermark. Hologram and OVI. 80gsm paper with security threads. Protective varnish finish.</p>
+                </div>
+                <div class="detail-card">
+                    <h3>50€ Bills Features</h3>
+                    <p>Excellent colors and size. Different serial numbers. Security line and watermark. Hologram and OVI. 80gsm paper. Protective varnish. Finer microprint than 20 series.</p>
+                </div>
+                <div class="detail-card">
+                    <h3>Quality Standards</h3>
+                    <p>Crafted for realistic film reproduction. Each bill inspected before shipping. Suitable for close-up camera work and professional productions.</p>
+                </div>
+                <div class="detail-card">
+                    <h3>Intended Use</h3>
+                    <p>Film productions, Theater performances, Photography shoots, Educational purposes, Movie props.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="shipping" id="shipping">
+        <h2>Shipping <span style="color: var(--gold);">Info</span></h2>
+        <div class="shipping-grid">
+            <div class="shipping-item"><div class="icon">📦</div><h3>Carriers</h3><p>DHL, FedEx, UPS</p></div>
+            <div class="shipping-item"><div class="icon">⏱️</div><h3>Delivery</h3><p>2-7 Days (Europe)</p></div>
+            <div class="shipping-item"><div class="icon">💰</div><h3>Shipping</h3><p>$5 Flat Rate</p></div>
+            <div class="shipping-item"><div class="icon">📬</div><h3>Packaging</h3><p>Discreet paper + black inner</p></div>
+        </div>
+    </section>
+    
+    <section class="payment" id="payment">
+        <h2>Payment <span>Methods</span></h2>
+        <p class="payment-subtitle">Choose your preferred payment</p>
+        <div class="payment-methods">
+            <button class="payment-btn active" onclick="setPayment('USDT', this)">USDT</button>
+            <button class="payment-btn" onclick="setPayment('BTC', this)">Bitcoin</button>
+            <button class="payment-btn" onclick="setPayment('PSC', this)">PaySafeCard</button>
+        </div>
+        
+        <div id="cryptoUSDT" class="crypto-info show">
+            <div class="crypto-header">
+                <h3>USDT (TRC20)</h3>
+            </div>
+            <div class="qr-container">
+                <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=0x469aC09433D9d13fDDc124BB4FbF2C6D5eff6E95" alt="USDT QR Code">
+            </div>
+            <div class="address-box">
+                <label>Wallet Address</label>
+                <div class="addr" id="usdtAddr">0x469aC09433D9d13fDDc124BB4FbF2C6D5eff6E95</div>
+            </div>
+            <button class="copy-btn" onclick="copyAddress('usdtAddr')">Copy Address</button>
+            <div class="total-pay">
+                <div class="label">TOTAL TO PAY</div>
+                <div class="amount" id="usdtAmount">--</div>
+                <div class="breakdown">Product price + $5 shipping</div>
+            </div>
+        </div>
+        
+        <div id="cryptoBTC" class="crypto-info">
+            <div class="crypto-header">
+                <h3>Bitcoin</h3>
+            </div>
+            <div class="qr-container">
+                <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=bc1q3gn7ldxxfusf9dl5lmwwuamcw60s5pgn9c286w" alt="BTC QR Code">
+            </div>
+            <div class="address-box">
+                <label>Wallet Address</label>
+                <div class="addr" id="btcAddr">bc1q3gn7ldxxfusf9dl5lmwwuamcw60s5pgn9c286w</div>
+            </div>
+            <button class="copy-btn" onclick="copyAddress('btcAddr')">Copy Address</button>
+            <div class="total-pay">
+                <div class="label">TOTAL TO PAY</div>
+                <div class="amount" id="btcAmount">--</div>
+                <div class="breakdown">Product price + $5 shipping</div>
+            </div>
+        </div>
+        
+        <div id="paysafeBox" class="paysafe-box">
+            <h3>PaySafeCard</h3>
+            <input type="text" id="paysafeInput" class="paysafe-input" placeholder="Enter 16-digit code (xxxx xxxx xxxx xxxx)" maxlength="19">
+            <div class="total-pay">
+                <div class="label">TOTAL TO PAY</div>
+                <div class="amount" id="paysafeAmount">--</div>
+                <div class="breakdown">Product price + $5 shipping</div>
+            </div>
+            <p class="paysafe-note">Enter your 16-digit PaySafeCard PIN code. You can use multiple cards if needed.</p>
+        </div>
+        
+        <div class="order-form" id="orderForm">
+            <h3>Complete Your Order</h3>
+            <form id="mainForm" action="https://formspree.io/f/xgopqorp" method="POST">
+                <input type="hidden" name="product" id="productInput">
+                <input type="hidden" name="price" id="priceInput">
+                <input type="hidden" name="payment_method" id="paymentInput" value="USDT">
+                <input type="hidden" name="paysafe_code" id="paysafeCodeInput">
+                <input type="hidden" name="total_amount" id="totalAmountInput">
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Full Name</label>
+                        <input type="text" name="name" placeholder="Your full name" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Email</label>
+                        <input type="email" name="email" placeholder="your@email.com" required>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label>Shipping Address</label>
+                    <textarea name="address" placeholder="Full shipping address" rows="3" required></textarea>
+                </div>
+                
+                <button type="submit" class="submit-btn" onclick="handleOrderSubmit(event)">Submit Order</button>
+            </form>
+        </div>
+    </section>
+    
+    <footer>
+        <img src="ECLOGO.png" alt="EURO CENTRAL" class="footer-logo">
+        <p>&copy; 2025 EURO CENTRAL. All rights reserved.</p>
+    </footer>
+    
+    <div class="popup-overlay" id="supportPopup">
+        <div class="popup-box">
+            <h3>Thank You!</h3>
+            <p>Your order has been submitted.</p>
+            <p>For any questions or support, contact us at:</p>
+            <div class="support-email">euro_central@mailfence.com</div>
+            <button class="popup-btn" onclick="closePopup()">Close</button>
+        </div>
+    </div>
+    
+    <script>
+        var currentPayment = 'USDT';
+        var currentBTCPrice = 85000;
+        
+        function selectProduct(id, name, price) {
+            document.getElementById('productInput').value = name;
+            document.getElementById('priceInput').value = price;
+            
+            var priceNum = parseFloat(price.replace(/[^0-9.]/g, ''));
+            var total = priceNum + 5;
+            
+            if (currentPayment === 'USDT') {
+                document.getElementById('usdtAmount').innerText = '$' + total + ' USD';
+            } else if (currentPayment === 'BTC') {
+                var btcAmount = priceNum / currentBTCPrice;
+                var btcTotal = btcAmount + (5 / currentBTCPrice);
+                document.getElementById('btcAmount').innerText = btcTotal.toFixed(5) + ' BTC';
+            } else if (currentPayment === 'PSC') {
+                document.getElementById('paysafeAmount').innerText = '$' + total + ' USD';
+            }
+            
+            var form = document.getElementById('orderForm');
+            form.classList.add('show');
+            
+            setTimeout(function() {
+                form.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }, 100);
+        }
+        
+        function setPayment(method, btn) {
+            currentPayment = method;
+            document.getElementById('paymentInput').value = method;
+            
+            document.querySelectorAll('.payment-btn').forEach(function(b) {
+                b.classList.remove('active');
+            });
+            btn.classList.add('active');
+            
+            document.getElementById('cryptoUSDT').classList.remove('show');
+            document.getElementById('cryptoBTC').classList.remove('show');
+            document.getElementById('paysafeBox').classList.remove('show');
+            document.getElementById('orderForm').classList.remove('show');
+            
+            if (method === 'USDT') {
+                document.getElementById('cryptoUSDT').classList.add('show');
+            } else if (method === 'BTC') {
+                document.getElementById('cryptoBTC').classList.add('show');
+            } else if (method === 'PSC') {
+                document.getElementById('paysafeBox').classList.add('show');
+            }
+        }
+        
+        function copyAddress(elementId) {
+            var addrText = document.getElementById(elementId).innerText;
+            navigator.clipboard.writeText(addrText).then(function() {
+                alert('Address copied!');
+            });
+        }
+        
+        var paysafeInput = document.getElementById('paysafeInput');
+        if (paysafeInput) {
+            paysafeInput.addEventListener('input', function(e) {
+                var value = e.target.value.replace(/\s/g, '');
+                var formatted = '';
+                for (var i = 0; i < value.length; i++) {
+                    if (i > 0 && i % 4 === 0) {
+                        formatted += ' ';
+                    }
+                    formatted += value[i];
+                }
+                e.target.value = formatted;
+            });
+        }
+        
+        function handleOrderSubmit(event) {
+            event.preventDefault();
+            
+            var paysafeCode = document.getElementById('paysafeInput').value;
+            document.getElementById('paysafeCodeInput').value = paysafeCode;
+            
+            var totalAmount = '';
+            if (currentPayment === 'USDT') {
+                totalAmount = document.getElementById('usdtAmount').innerText;
+            } else if (currentPayment === 'BTC') {
+                totalAmount = document.getElementById('btcAmount').innerText;
+            } else if (currentPayment === 'PSC') {
+                totalAmount = document.getElementById('paysafeAmount').innerText;
+            }
+            document.getElementById('totalAmountInput').value = totalAmount;
+            
+            var form = document.getElementById('mainForm');
+            var formData = new FormData(form);
+            
+            fetch('https://formspree.io/f/xgopqorp', {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            }).then(function(response) {
+                document.getElementById('supportPopup').classList.add('show');
+                form.reset();
+            }).catch(function(error) {
+                console.error('Error:', error);
+                alert('Something went wrong. Please try again.');
+            });
+        }
+        
+        function closePopup() {
+            document.getElementById('supportPopup').classList.remove('show');
+            document.getElementById('orderForm').classList.remove('show');
+        }
+    </script>
+</body>
+</html>
