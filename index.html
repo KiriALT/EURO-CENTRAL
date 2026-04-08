@@ -95,6 +95,9 @@
             z-index: 0;
         }
         
+        .hero-video::-webkit-media-controls { display: none !important; }
+        .hero-video video { display: block; }
+        
         .hero::after {
             content: '';
             position: absolute;
@@ -817,9 +820,10 @@
     </header>
     
     <section class="hero">
-        <video class="hero-video" autoplay muted loop playsinline>
+        <video class="hero-video" autoplay muted loop playsinline preload="auto">
             <source src="EC_TG/INTO_VIDEO/ypanhsqpihsjbyp.mp4" type="video/mp4">
         </video>
+        <div class="hero-bg-fallback" style="display:none"></div>
         <div class="hero-content">
             <h1>Premium <span>Euro Prop Bills</span></h1>
             <p>High-quality S-Quality Euro bills. Perfect for LARP, film, theater, photography & more.</p>
@@ -1125,6 +1129,15 @@
     <script>
         var currentPayment = 'USDT';
         var currentBTCPrice = 85000;
+        
+        document.addEventListener('DOMContentLoaded', function() {
+            var heroVideo = document.querySelector('.hero-video');
+            if (heroVideo) {
+                heroVideo.play().catch(function() {
+                    heroVideo.style.display = 'none';
+                });
+            }
+        });
         
         function selectProduct(id, name, price) {
             document.getElementById('productInput').value = name;
