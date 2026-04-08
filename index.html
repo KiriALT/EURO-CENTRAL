@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Prop Store - Premium Movie Props</title>
+    <title>EURO CENTRAL - Premium Movie Props</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         
@@ -152,7 +152,6 @@
             border-radius: 20px;
             padding: 30px;
             transition: all 0.3s;
-            cursor: pointer;
             border: 2px solid transparent;
         }
         
@@ -215,21 +214,46 @@
             color: white;
         }
         
-        .shipping {
+        .details {
             background: var(--dark2);
             padding: 80px 20px;
         }
         
-        .shipping-content {
+        .details-content {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .details h2 {
+            text-align: center;
+            font-size: 32px;
+            margin-bottom: 20px;
+        }
+        
+        .details-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 40px;
+        }
+        
+        .detail-card {
+            background: var(--dark);
+            padding: 25px;
+            border-radius: 15px;
+        }
+        
+        .detail-card h3 { color: var(--primary); margin-bottom: 15px; }
+        .detail-card p { color: var(--gray); font-size: 14px; line-height: 1.6; }
+        
+        .shipping {
+            padding: 80px 20px;
             max-width: 900px;
             margin: 0 auto;
             text-align: center;
         }
         
-        .shipping h2 {
-            font-size: 32px;
-            margin-bottom: 20px;
-        }
+        .shipping h2 { font-size: 32px; margin-bottom: 20px; }
         
         .shipping-grid {
             display: grid;
@@ -240,13 +264,12 @@
         
         .shipping-item {
             padding: 25px;
-            background: var(--dark);
+            background: var(--dark2);
             border-radius: 15px;
             transition: transform 0.3s;
         }
         
         .shipping-item:hover { transform: translateY(-5px); }
-        
         .shipping-item h3 { color: var(--primary); margin-bottom: 10px; }
         .shipping-item p { color: var(--gray); font-size: 14px; }
         
@@ -365,8 +388,9 @@
 <body>
     <header>
         <nav>
-            <a href="#" class="logo">PROP STORE</a>
+            <a href="#" class="logo">€ EURO CENTRAL</a>
             <a href="#products">Products</a>
+            <a href="#details">Details</a>
             <a href="#shipping">Shipping</a>
             <a href="#payment">Payment</a>
         </nav>
@@ -375,7 +399,7 @@
     <section class="hero">
         <div class="hero-content">
             <h1>Premium <span>Movie Props</span></h1>
-            <p>High-quality prop bills for film & theater. Professionally crafted with authentic details.</p>
+            <p>High-quality prop bills for film, theater & photography. Professionally crafted with authentic details.</p>
             <a href="#products" class="cta-btn">Browse Products</a>
         </div>
     </section>
@@ -470,28 +494,55 @@
         </div>
     </section>
     
-    <section class="shipping" id="shipping">
-        <div class="shipping-content">
-            <h2>Shipping <span style="color: var(--primary);">Info</span></h2>
-            <p>Worldwide delivery to Euro countries via DHL, FedEx, and UPS</p>
+    <section class="details" id="details">
+        <div class="details-content">
+            <h2>Product <span style="color: var(--primary);">Details</span></h2>
+            <p style="text-align: center; color: var(--gray);">All our props are designed for professional film & theater use</p>
             
-            <div class="shipping-grid">
-                <div class="shipping-item">
-                    <h3>📦 Carriers</h3>
-                    <p>DHL, FedEx, UPS</p>
+            <div class="details-grid">
+                <div class="detail-card">
+                    <h3>20€ Bills Features</h3>
+                    <p>Excellent colors and size matching real bills. Different serial numbers on each bill. Light printed security line and watermark. High-quality hologram and Optical Variability Ink (OVI). 80gsm paper with security threads. Coated in protective varnish for authentic shimmer.</p>
                 </div>
-                <div class="shipping-item">
-                    <h3>⏱️ Delivery</h3>
-                    <p>2-7 Days (Europe)</p>
+                
+                <div class="detail-card">
+                    <h3>50€ Bills Features</h3>
+                    <p>Excellent colors and size matching real bills. Different serial numbers on each bill. Light printed security line and watermark. High-quality hologram and Optical Variability Ink (OVI). 80gsm paper with security threads. Coated in protective varnish for authentic shimmer. Finer microprint compared to 20 series.</p>
                 </div>
-                <div class="shipping-item">
-                    <h3>💰 Shipping</h3>
-                    <p>5€ Flat Rate</p>
+                
+                <div class="detail-card">
+                    <h3>Quality Standards</h3>
+                    <p>Our props are crafted with attention to detail for realistic film reproduction. Each bill is inspected for quality before shipping. Suitable for close-up camera work and professional productions.</p>
                 </div>
-                <div class="shipping-item">
-                    <h3>📬 Packaging</h3>
-                    <p>Discreet paper + black inner</p>
+                
+                <div class="detail-card">
+                    <h3>Intended Use</h3>
+                    <p>These items are intended for: Film productions, Theater performances, Photography shoots, Educational purposes, Movie props</p>
                 </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="shipping" id="shipping">
+        <h2>Shipping <span style="color: var(--primary);">Info</span></h2>
+        <p>Worldwide delivery to Euro countries</p>
+        
+        <div class="shipping-grid">
+            <div class="shipping-item">
+                <h3>📦 Carriers</h3>
+                <p>DHL, FedEx, UPS</p>
+            </div>
+            <div class="shipping-item">
+                <h3>⏱️ Delivery</h3>
+                <p>2-7 Days (Europe)</p>
+            </div>
+            <div class="shipping-item">
+                <h3>💰 Shipping</h3>
+                <p>5€ Flat Rate</p>
+            </div>
+            <div class="shipping-item">
+                <h3>📬 Packaging</h3>
+                <p>Discreet paper + black inner</p>
             </div>
         </div>
     </section>
@@ -536,15 +587,15 @@
     </section>
     
     <footer>
-        <p>&copy; 2025 Prop Store. All rights reserved.</p>
+        <p>&copy; 2025 EURO CENTRAL. All rights reserved.</p>
         <div class="disclaimer">
-            <p>FOR EDUCATION ONLY</p>
-            <p>These items are designed for film, theater, and educational purposes only.</p>
+            <p>FOR FILM & THEATER USE ONLY</p>
+            <p>These items are prop bills designed exclusively for film, theater, photography, and educational purposes. Not legal tender.</p>
         </div>
     </footer>
     
     <script>
-        let selectedPayment = 'USDT';
+        var selectedPayment = 'USDT';
         
         function selectProduct(id, name, price) {
             document.getElementById('productInput').value = name;
@@ -566,7 +617,6 @@
             event.target.classList.add('active');
         }
         
-        // IMPORTANT: Replace YOUR_FORMSPREE_ID below
         document.getElementById('orderForm').action = 'https://formspree.io/f/xgopqorp';
     </script>
 </body>
