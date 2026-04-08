@@ -183,9 +183,9 @@
             box-shadow: 0 8px 35px rgba(212, 175, 55, 0.6);
         }
         
-        .products, .shipping, .payment {
-            padding: 100px 25px;
-            max-width: 1200px;
+        .products, .shipping, .payment, section {
+            padding: 40px 15px;
+            max-width: 900px;
             margin: 0 auto;
         }
         
@@ -231,9 +231,9 @@
         
         .proof-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
-            max-width: 1100px;
+            grid-template-columns: 1fr;
+            gap: 15px;
+            max-width: 600px;
             margin: 0 auto;
         }
         
@@ -242,6 +242,10 @@
             padding: 20px;
             border-radius: 16px;
             text-align: center;
+        }
+        
+        .proof-wide {
+            grid-column: span 2;
         }
         
         .proof-item img, .proof-item video {
@@ -273,18 +277,24 @@
         
         .product-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 25px;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            max-width: 800px;
+            margin: 0 auto;
         }
         
         .product-card {
             background: var(--black2);
-            border-radius: 24px;
-            padding: 30px;
-            transition: all 0.4s;
+            border-radius: 16px;
+            padding: 15px;
+            transition: all 0.3s;
             border: 1px solid rgba(212, 175, 55, 0.15);
             position: relative;
-            overflow: hidden;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            min-height: 180px;
             min-height: 480px;
             display: flex;
             flex-direction: column;
@@ -422,12 +432,16 @@
         }
         
         .product-card .badge {
+            position: absolute;
+            top: 10px;
+            right: 10px;
             display: inline-block;
-            padding: 5px 12px;
-            background: rgba(212, 175, 55, 0.2);
-            color: var(--gold);
-            border-radius: 20px;
-            font-size: 12px;
+            padding: 5px 10px;
+            background: var(--gold);
+            color: var(--black);
+            border-radius: 8px;
+            font-size: 11px;
+            font-weight: 700;
             font-weight: 600;
             margin-bottom: 15px;
             position: relative;
@@ -468,27 +482,11 @@
         }
         
         .bill-img {
-            position: absolute;
-            top: 15px;
-            right: 15px;
-            width: 90px;
+            width: 100%;
+            max-width: 150px;
             height: auto;
-            transform: rotate(-8deg);
-            opacity: 0.85;
-            transition: all 0.4s;
-            z-index: 0;
-        }
-        
-        .bill-img-2 {
-            position: absolute;
-            top: 65px;
-            right: 35px;
-            width: 90px;
-            height: auto;
-            transform: rotate(12deg);
-            opacity: 0.6;
-            transition: all 0.4s;
-            z-index: 0;
+            margin: 0 auto 10px;
+            display: block;
         }
         
         .product-card:hover .bill-img {
@@ -501,40 +499,17 @@
             opacity: 0.8;
         }
         
-        .product-card ul {
-            list-style: none;
-            margin-bottom: 25px;
-            position: relative;
-            z-index: 1;
-        }
-        
-        .product-card li {
-            padding: 8px 0;
-            font-size: 13px;
-            color: var(--silver-dark);
-            border-bottom: 1px solid rgba(255,255,255,0.03);
-        }
-        
-        .product-card li::before {
-            content: '✓ ';
-            color: var(--gold);
-            font-weight: 700;
-        }
-        
         .select-btn {
             width: 100%;
-            padding: 16px;
+            padding: 12px 10px;
             background: transparent;
             border: 2px solid var(--gold);
             color: var(--gold);
-            border-radius: 14px;
-            font-size: 15px;
+            border-radius: 10px;
+            font-size: 14px;
             font-weight: 600;
             cursor: pointer;
             transition: all 0.3s;
-            position: relative;
-            z-index: 1;
-            margin-top: auto;
         }
         
         .select-btn:hover { background: var(--gold); color: var(--black); }
@@ -798,9 +773,33 @@
         
         @media (max-width: 768px) {
             nav { display: none; }
-            .form-row { grid-template-columns: 1fr; }
-            .hero p { font-size: 16px; }
-            .product-card { min-height: 420px; }
+        }
+        
+        @media (min-width: 769px) {
+            .hero-content { max-width: 600px; }
+            .hero h1 { font-size: 48px; }
+            .product-grid { grid-template-columns: repeat(3, 1fr); }
+            .product-card { padding: 25px; }
+            .bill-img { max-width: 120px; }
+            .proof-grid { grid-template-columns: repeat(2, 1fr); gap: 30px; }
+            .proof-item img { min-height: 250px; }
+            section { padding: 60px 25px; }
+        }
+        
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 28px; }
+            .hero p { font-size: 14px; }
+            .section-title { font-size: 24px; }
+            .product-grid { grid-template-columns: repeat(2, 1fr); gap: 15px; }
+            .product-card { padding: 15px; }
+            .product-card .price { font-size: 20px; }
+            .product-card img { width: 100%; }
+            .select-btn { padding: 12px; font-size: 13px; }
+            .proof-grid { grid-template-columns: 1fr; gap: 15px; }
+            .proof-item img { width: 100%; min-height: 200px; object-fit: cover; }
+            section { padding: 40px 15px; }
+            header { padding: 10px 15px; }
+            .logo-img { height: 35px; }
         }
     </style>
 </head>
@@ -809,217 +808,94 @@
         <div class="header-inner">
             <img src="ECLOGO.png" alt="EURO CENTRAL" class="logo-img">
             <nav>
-                <a href="#about">About</a>
-                <a href="#products">Products</a>
+                <a href="#products">Shop</a>
                 <a href="#proof">Proof</a>
-                <a href="#details">Details</a>
-                <a href="#shipping">Shipping</a>
-                <a href="#payment">Payment</a>
+                <a href="#payment">Buy</a>
             </nav>
         </div>
     </header>
     
     <section class="hero">
         <video class="hero-video" autoplay muted loop playsinline preload="auto">
-            <source src="EC_TG/INTO_VIDEO/ypanhsqpihsjbyp.mp4" type="video/mp4">
+            <source src="intro.mp4" type="video/mp4">
         </video>
-        <div class="hero-bg-fallback" style="display:none"></div>
         <div class="hero-content">
-            <h1>Premium <span>Euro Prop Bills</span></h1>
-            <p>High-quality S-Quality Euro bills. Perfect for LARP, film, theater, photography & more.</p>
-            <a href="#products" class="cta-btn">View Products</a>
+            <h1>Euro Prop Bills</h1>
+            <p>S-Quality. For LARP, film & more.</p>
+            <a href="#products" class="cta-btn">Shop Now</a>
         </div>
     </section>
     
-    <section class="about" id="about">
-        <h2 class="section-title">Welcome to <span>EURO CENTRAL</span></h2>
-        <p class="section-subtitle">Premium prop bills since 2021</p>
-        
-        <div class="about-grid">
-            <div class="about-card">
-                <h3>Who We Are</h3>
-                <p>We are a group that sells premium Euro prop bills. We work by sourcing counterfeit bills in bulk from large private groups, allowing us to resell at competitive prices while maintaining excellent quality.</p>
+    <section class="proof" id="proof">
+        <h2 class="section-title">Proof <span>&</span> Quality</h2>
+        <div class="proof-grid">
+            <div class="proof-item">
+                <img src="counter.gif" alt="Counter Test">
             </div>
-            <div class="about-card">
-                <h3>Our Quality</h3>
-                <p>Our Euro bills are "S Quality" - they can easily be used for film productions, photography, gifts, theater, and LARP events. Every bill is carefully inspected before shipping.</p>
-            </div>
-            <div class="about-card">
-                <h3>Our Manufacturer</h3>
-                <p>Our bills are made in Peru using an intaglio press, unlike low-quality bills made on inkjet printers. This ensures premium detail and authenticity.</p>
-            </div>
-            <div class="about-card">
-                <h3>Scanner Tested</h3>
-                <p>Our bills pass every scanner except for ATMs. Perfect for film, theater, photography, and all LARP purposes.</p>
+            <div class="proof-item">
+                <img src="press.jpg" alt="Made in Peru">
             </div>
         </div>
     </section>
     
     <section class="products" id="products">
-        <h2 class="section-title">Our <span>Products</span></h2>
-        <p class="section-subtitle">Choose your perfect prop set</p>
+        <h2 class="section-title">Shop <span>Bills</span></h2>
         
         <div class="product-grid">
             <div class="product-card">
-                <span class="badge">BEST VALUE</span>
-                <img src="EC_TG/BONUS_EYECANDY/MAIN_EYECANDY_ASSETS/20 BILL.png" alt="20 Euro Bills" class="bill-img">
-                <img src="EC_TG/BONUS_EYECANDY/MAIN_EYECANDY_ASSETS/20 BILL.png" alt="20 Euro Bills" class="bill-img-2">
-                <h3>20€ Bills - Sample (8)</h3>
-                <p class="desc">Perfect for film & photography</p>
-                <div class="price">$32 USD <span class="discount">$45</span></div>
-                <ul>
-                    <li>Excellent colors & size</li>
-                    <li>Different serial numbers</li>
-                    <li>Security thread paper</li>
-                    <li>Hologram & OVI</li>
-                    <li>Protective varnish</li>
-                </ul>
-                <button class="select-btn" onclick="selectProduct('20_8', '20 Euro Bills - Sample (8)', '$32 USD')">Select</button>
+                <span class="badge">30% OFF</span>
+                <img src="20bill.png" alt="20€" class="bill-img">
+                <div class="price">$32</div>
+                <button class="select-btn" onclick="selectProduct('20_8', '20€ x8', '$32 USD')">8 Bills</button>
             </div>
             
             <div class="product-card">
-                <img src="EC_TG/BONUS_EYECANDY/MAIN_EYECANDY_ASSETS/20 BILL.png" alt="20 Euro Bills" class="bill-img">
-                <img src="EC_TG/BONUS_EYECANDY/MAIN_EYECANDY_ASSETS/20 BILL.png" alt="20 Euro Bills" class="bill-img-2">
-                <h3>20€ Bills - Medium (15)</h3>
-                <p class="desc">Great for small productions</p>
-                <div class="price">$67 USD <span class="discount">$95</span></div>
-                <ul>
-                    <li>Excellent colors & size</li>
-                    <li>Different serial numbers</li>
-                    <li>Security thread paper</li>
-                    <li>Hologram & OVI</li>
-                    <li>Protective varnish</li>
-                </ul>
-                <button class="select-btn" onclick="selectProduct('20_15', '20 Euro Bills - Medium (15)', '$67 USD')">Select</button>
+                <img src="20bill.png" alt="20€" class="bill-img">
+                <div class="price">$67</div>
+                <button class="select-btn" onclick="selectProduct('20_15', '20€ x15', '$67 USD')">15 Bills</button>
             </div>
             
             <div class="product-card">
-                <img src="EC_TG/BONUS_EYECANDY/MAIN_EYECANDY_ASSETS/20 BILL.png" alt="20 Euro Bills" class="bill-img">
-                <img src="EC_TG/BONUS_EYECANDY/MAIN_EYECANDY_ASSETS/20 BILL.png" alt="20 Euro Bills" class="bill-img-2">
-                <h3>20€ Bills - Large (25)</h3>
-                <p class="desc">For professional productions</p>
-                <div class="price">$88 USD <span class="discount">$125</span></div>
-                <ul>
-                    <li>Excellent colors & size</li>
-                    <li>Different serial numbers</li>
-                    <li>Security thread paper</li>
-                    <li>Hologram & OVI</li>
-                    <li>Protective varnish</li>
-                </ul>
-                <button class="select-btn" onclick="selectProduct('20_25', '20 Euro Bills - Large (25)', '$88 USD')">Select</button>
+                <img src="20bill.png" alt="20€" class="bill-img">
+                <div class="price">$88</div>
+                <button class="select-btn" onclick="selectProduct('20_25', '20€ x25', '$88 USD')">25 Bills</button>
             </div>
             
             <div class="product-card">
-                <span class="badge">POPULAR</span>
-                <img src="EC_TG/BONUS_EYECANDY/MAIN_EYECANDY_ASSETS/50 BILL.png" alt="50 Euro Bills" class="bill-img">
-                <img src="EC_TG/BONUS_EYECANDY/MAIN_EYECANDY_ASSETS/50 BILL.png" alt="50 Euro Bills" class="bill-img-2">
-                <h3>50€ Bills - Sample (8)</h3>
-                <p class="desc">Perfect for film & photography</p>
-                <div class="price">$55 USD</div>
-                <ul>
-                    <li>Excellent colors & size</li>
-                    <li>Different serial numbers</li>
-                    <li>Security thread paper</li>
-                    <li>Hologram & OVI</li>
-                    <li>Finer microprint</li>
-                </ul>
-                <button class="select-btn" onclick="selectProduct('50_8', '50 Euro Bills - Sample (8)', '$55 USD')">Select</button>
+                <img src="50bill.png" alt="50€" class="bill-img">
+                <div class="price">$55</div>
+                <button class="select-btn" onclick="selectProduct('50_8', '50€ x8', '$55 USD')">8 Bills</button>
             </div>
             
             <div class="product-card">
-                <img src="EC_TG/BONUS_EYECANDY/MAIN_EYECANDY_ASSETS/50 BILL.png" alt="50 Euro Bills" class="bill-img">
-                <img src="EC_TG/BONUS_EYECANDY/MAIN_EYECANDY_ASSETS/50 BILL.png" alt="50 Euro Bills" class="bill-img-2">
-                <h3>50€ Bills - Medium (15)</h3>
-                <p class="desc">Great for small productions</p>
-                <div class="price">$105 USD</div>
-                <ul>
-                    <li>Excellent colors & size</li>
-                    <li>Different serial numbers</li>
-                    <li>Security thread paper</li>
-                    <li>Hologram & OVI</li>
-                    <li>Finer microprint</li>
-                </ul>
-                <button class="select-btn" onclick="selectProduct('50_15', '50 Euro Bills - Medium (15)', '$105 USD')">Select</button>
+                <img src="50bill.png" alt="50€" class="bill-img">
+                <div class="price">$105</div>
+                <button class="select-btn" onclick="selectProduct('50_15', '50€ x15', '$105 USD')">15 Bills</button>
             </div>
             
             <div class="product-card">
-                <img src="EC_TG/BONUS_EYECANDY/MAIN_EYECANDY_ASSETS/50 BILL.png" alt="50 Euro Bills" class="bill-img">
-                <img src="EC_TG/BONUS_EYECANDY/MAIN_EYECANDY_ASSETS/50 BILL.png" alt="50 Euro Bills" class="bill-img-2">
-                <h3>50€ Bills - Large (25)</h3>
-                <p class="desc">For professional productions</p>
-                <div class="price">$135 USD</div>
-                <ul>
-                    <li>Excellent colors & size</li>
-                    <li>Different serial numbers</li>
-                    <li>Security thread paper</li>
-                    <li>Hologram & OVI</li>
-                    <li>Finer microprint</li>
-                </ul>
-                <button class="select-btn" onclick="selectProduct('50_25', '50 Euro Bills - Large (25)', '$135 USD')">Select</button>
+                <img src="50bill.png" alt="50€" class="bill-img">
+                <div class="price">$135</div>
+                <button class="select-btn" onclick="selectProduct('50_25', '50€ x25', '$135 USD')">25 Bills</button>
             </div>
         </div>
     </section>
     
     <section class="proof" id="proof">
-        <h2>Proof <span>&</span> Reviews</h2>
-        <p class="proof-subtitle">See for yourself why we're trusted</p>
+        <h2>Proof <span>&</span> Quality</h2>
+        <p class="proof-subtitle">Premium intaglio press quality</p>
         
         <div class="proof-grid">
-            <div class="proof-item proof-video">
-                <video controls playsinline>
-                    <source src="EC_TG/BONUS_EYECANDY/PACKING_PRODUCT_VIDEO.mp4" type="video/mp4">
-                </video>
-                <h3>Packing Process</h3>
-                <p>Discreet packaging ensured</p>
+            <div class="proof-item proof-wide">
+                <img src="counter.gif" alt="Counter Test">
+                <h3>Counter Test</h3>
+                <p>Passes all scanners</p>
             </div>
-            <div class="proof-item">
-                <video controls playsinline>
-                    <source src="EC_TG/PROOF_SECTION/20 EUR/0402-copy(1).mp4" type="video/mp4">
-                </video>
-                <h3>20€ Bills</h3>
-                <p>Close-up detail view</p>
+            <div class="proof-item proof-wide">
+                <img src="press.jpg" alt="Intaglio Press">
+                <h3>Made in Peru</h3>
+                <p>Premium intaglio press manufacturing</p>
             </div>
-            <div class="proof-item">
-                <video controls playsinline>
-                    <source src="EC_TG/PROOF_SECTION/50 EUR/0402-copy(3).mp4" type="video/mp4">
-                </video>
-                <h3>50€ Bills</h3>
-                <p>Premium quality view</p>
-            </div>
-        </div>
-    </section>
-    
-    <section class="details" id="details">
-        <div class="details-inner">
-            <h2>Product <span style="color: var(--gold);">Details</span></h2>
-            <div class="details-grid">
-                <div class="detail-card">
-                    <h3>20€ Bills Features</h3>
-                    <p>Excellent colors and size. Different serial numbers. Security line and watermark. Hologram and OVI. 80gsm paper with security threads. Protective varnish finish.</p>
-                </div>
-                <div class="detail-card">
-                    <h3>50€ Bills Features</h3>
-                    <p>Excellent colors and size. Different serial numbers. Security line and watermark. Hologram and OVI. 80gsm paper. Protective varnish. Finer microprint than 20 series.</p>
-                </div>
-                <div class="detail-card">
-                    <h3>Quality Standards</h3>
-                    <p>Crafted for realistic film reproduction. Each bill inspected before shipping. Suitable for close-up camera work and professional productions.</p>
-                </div>
-                <div class="detail-card">
-                    <h3>Intended Use</h3>
-                    <p>Film productions, Theater performances, Photography shoots, Educational purposes, Movie props.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-    
-    <section class="shipping" id="shipping">
-        <h2>Shipping <span style="color: var(--gold);">Info</span></h2>
-        <div class="shipping-grid">
-            <div class="shipping-item"><div class="icon">📦</div><h3>Carriers</h3><p>DHL, FedEx, UPS</p></div>
-            <div class="shipping-item"><div class="icon">⏱️</div><h3>Delivery</h3><p>2-7 Days (Europe)</p></div>
-            <div class="shipping-item"><div class="icon">💰</div><h3>Shipping</h3><p>$5 Flat Rate</p></div>
-            <div class="shipping-item"><div class="icon">📬</div><h3>Packaging</h3><p>Discreet paper + black inner</p></div>
         </div>
     </section>
     
