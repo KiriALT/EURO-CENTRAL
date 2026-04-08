@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prop Store - Movie Bills</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', sans-serif; background: #0d0d1a; color: #fff; }
+        header { background: #1a1a2e; padding: 20px; text-align: center; }
+        .logo { font-size: 24px; font-weight: bold; color: #e94560; }
+        .container { max-width: 600px; margin: 40px auto; padding: 20px; }
+        h1 { text-align: center; margin-bottom: 30px; }
+        .product { background: #1a1a2e; padding: 20px; margin-bottom: 15px; border-radius: 10px; cursor: pointer; transition: 0.3s; }
+        .product:hover { background: #252540; }
+        .product h3 { color: #e94560; margin-bottom: 5px; }
+        .product p { color: #888; }
+        .product .price { font-size: 18px; color: #fff; margin-top: 10px; }
+        .selected { border: 2px solid #e94560; }
+        form { display: none; background: #1a1a2e; padding: 30px; border-radius: 10px; margin-top: 30px; }
+        input, select, textarea { width: 100%; padding: 12px; margin-bottom: 15px; background: #0d0d1a; border: 1px solid #333; color: #fff; border-radius: 5px; }
+        button { width: 100%; padding: 15px; background: #e94560; color: #fff; border: none; border-radius: 5px; font-size: 16px; cursor: pointer; }
+        button:hover { background: #d63d56; }
+        .hidden { display: none; }
+        .show { display: block; }
+    </style>
+</head>
+<body>
+    <header><div class="logo">PROP STORE</div></header>
+    <div class="container">
+        <h1>Select Product</h1>
+        <div id="products">
+            <div class="product" onclick="selectProduct('20_8')">
+                <h3>20€ Bills x 8 (Sample)</h3>
+                <p>High-quality prop bills</p>
+                <div class="price">40 USDT / 0.00056 BTC</div>
+            </div>
+            <div class="product" onclick="selectProduct('20_15')">
+                <h3>20€ Bills x 15</h3>
+                <p>High-quality prop bills</p>
+                <div class="price">90 USDT / 0.00125 BTC</div>
+            </div>
+            <div class="product" onclick="selectProduct('20_25')">
+                <h3>20€ Bills x 25</h3>
+                <p>High-quality prop bills</p>
+                <div class="price">120 USDT / 0.00167 BTC</div>
+            </div>
+            <div class="product" onclick="selectProduct('50_8')">
+                <h3>50€ Bills x 8 (Sample)</h3>
+                <p>High-quality prop bills</p>
+                <div class="price">50 USDT / 0.00070 BTC</div>
+            </div>
+            <div class="product" onclick="selectProduct('50_15')">
+                <h3>50€ Bills x 15</h3>
+                <p>High-quality prop bills</p>
+                <div class="price">100 USDT / 0.00139 BTC</div>
+            </div>
+            <div class="product" onclick="selectProduct('50_25')">
+                <h3>50€ Bills x 25</h3>
+                <p>High-quality prop bills</p>
+                <div class="price">130 USDT / 0.00181 BTC</div>
+            </div>
+        </div>
+        
+        <form id="orderForm" action="https://formspree.io/f/xgopqorp" method="POST">
+            <h2 id="selectedProduct"></h2>
+            <input type="hidden" name="product" id="productInput">
+            <input type="hidden" name="price_crypto" id="priceCryptoInput">
+            
+            <label>Payment Method</label>
+            <select name="payment_method" required>
+                <option value="USDT">USDT (TRC20)</option>
+                <option value="BTC">Bitcoin</option>
+            </select>
+            
+            <label>Your Crypto Address (for refund if needed)</label>
+            <input type="text" name="crypto_address" required placeholder="Your wallet address">
+            
+            <label>Full Name</label>
+            <input type="text" name="name" required placeholder="Full Name">
+            
+            <label>Shipping Address</label>
+            <textarea name="address" required placeholder="Full shipping address"></textarea>
+            
+            <label>Email</label>
+            <input type="email" name="email" required placeholder="Your email">
+            
+            <button type="submit">Get Payment Address</button>
+        </form>
+    </div>
+
+    <script>
+        const products = {
+            "20_8": { name: "20€ Bills x 8", price_usdt: "40 USDT", price_btc: "0.00056 BTC" },
+            "20_15": { name: "20€ Bills x 15", price_usdt: "90 USDT", price_btc: "0.00125 BTC" },
+            "20_25": { name: "20€ Bills x 25", price_usdt: "120 USDT", price_btc: "0.00167 BTC" },
+            "50_8": { name: "50€ Bills x 8", price_usdt: "50 USDT", price_btc: "0.00070 BTC" },
+            "50_15": { name: "50€ Bills x 15", price_usdt: "100 USDT", price_btc: "0.00139 BTC" },
+            "50_25": { name: "50€ Bills x 25", price_usdt: "130 USDT", price_btc: "0.00181 BTC" }
+        };
+        
+        function selectProduct(key) {
+            document.getElementById('orderForm').classList.add('show');
+            document.getElementById('selectedProduct').textContent = products[key].name;
+            document.getElementById('productInput').value = products[key].name;
+            document.getElementById('priceCryptoInput').value = products[key].price_usdt + " / " + products[key].price_btc;
+        }
+    </script>
+</body>
+</html>
